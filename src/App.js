@@ -1,10 +1,11 @@
+import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
 
 const App = () => {
   return (
     <div>
       <NavBar />
-      <h1>Coderhouse | React</h1>
+      <ItemListContainer greeting="Coderhouse | React" />
     </div>
   )
 }
