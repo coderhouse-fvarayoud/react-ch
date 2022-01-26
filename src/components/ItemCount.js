@@ -13,7 +13,7 @@ const ItemCount = ({ itemName, stock, initial, onAdd }) => {
       </div>
       {stock > 0 ? (
         <div className="flex items-center w-full gap-4">
-          <span className="">Cantidad: </span>
+          <span>Cantidad: </span>
           <div className="flex items-center select-none">
             <div
               onClick={() =>
@@ -37,7 +37,6 @@ const ItemCount = ({ itemName, stock, initial, onAdd }) => {
       ) : (
         <span>El producto no tiene stock</span>
       )}
-
       <button
         disabled={stock < 1}
         onClick={() => stock > 0 && onAdd(selectedAmount)}
