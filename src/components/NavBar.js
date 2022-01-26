@@ -30,8 +30,8 @@ const NavBar = () => (
     </a>
     <div className="hidden lg:block">
       <ul className="flex gap-4">
-        {options.map((option) => (
-          <li>
+        {options.map((option, idx) => (
+          <li key={idx}>
             <a href={option.href}>{option.name}</a>
           </li>
         ))}
