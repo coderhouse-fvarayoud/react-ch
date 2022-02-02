@@ -6,8 +6,8 @@ const Item = ({ item }) => {
   const { id, name, category } = item
 
   return (
-    <Link to={`/item/${id}`}>
-      <div className="flex flex-col items-center justify-center p-8 m-2 bg-cardBackground rounded-xl">
+    <Link to={`/item/${id}`} className="w-full md:w-auto">
+      <div className="flex flex-col items-center justify-center p-8 m-2 bg-cardBackground rounded-xl ">
         <div className="p-2 mb-4">
           <FontAwesomeIcon
             icon={getCategoryIcon(category)}

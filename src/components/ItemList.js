@@ -2,7 +2,7 @@ import Item from './Item'
 
 const ItemList = ({ items }) => {
   return (
-    <div className="flex ">
+    <div className="flex flex-wrap">
       {items.map((item) => (
         <Item key={item.id} item={item} />
       ))}
