@@ -1,27 +1,28 @@
-import ItemCount from './ItemCount'
+import { useEffect, useState } from 'react'
+import { fetchItemDetail } from '../utils/fetchItemDetails'
+import { fetchItems } from '../utils/fetchItems'
+import ItemDetailContainer from './ItemDetailContainer'
+import ItemList from './ItemList'
 
 const ItemListContainer = ({ greeting }) => {
-  const onAdd = (amount) => {
-    console.log(`Agregar ${amount} productos.`)
+  const [items, setItems] = useState([])
+
+  const getItems = () => {
+    fetchItemDetail(2).then((data) => {
+      console.log('Data: ', data)
+      setItems(data)
+    })
   }
+
+  useEffect(() => {
+    getItems()
+  }, [])
 
   return (
     <div className="p-10">
       <span className="text-xl font-semibold text-blue-900 ">{greeting}</span>
-      <div className="flex flex-col gap-4 my-4">
-        <ItemCount
-          itemName="Demo product with stock"
-          stock={5}
-          initial={1}
-          onAdd={onAdd}
-        />
-        <ItemCount
-          itemName="Demo product without stock"
-          stock={0}
-          initial={1}
-          onAdd={onAdd}
-        />
-      </div>
+      <ItemList items={items} />
+      <ItemDetailContainer id={1} />
     </div>
   )
 }
