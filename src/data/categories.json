@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Celulares",
+    "id": 1
+  },
+  {
+    "name": "Informática",
+    "id": 2
+  },
+  {
+    "name": "Electrodomésticos",
+    "id": 3
+  },
+  {
+    "name": "Gaming",
+    "id": 4
+  }
+]

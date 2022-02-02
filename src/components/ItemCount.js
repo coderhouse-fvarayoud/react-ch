@@ -2,14 +2,13 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const ItemCount = ({ itemName, stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [selectedAmount, setSelectedAmount] = useState(initial)
 
   return (
-    <div className="flex flex-col justify-between w-1/2 gap-4 p-8 rounded-lg bg-cardBackground">
+    <div className="flex flex-col justify-between w-1/2 gap-4 py-4 rounded-lg bg-cardBackground">
       <div className="flex items-center gap-2">
-        <span className="text-lg font-semibold">{itemName}</span>
-        <span className="text-gray-500">({stock} disponibles)</span>
+        <span className="text-gray-500">{stock} disponibles</span>
       </div>
       {stock > 0 ? (
         <div className="flex items-center w-full gap-4">

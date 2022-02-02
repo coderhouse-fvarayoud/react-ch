@@ -1,28 +1,39 @@
 import { useEffect, useState } from 'react'
-import { fetchItemDetail } from '../utils/fetchItemDetails'
-import { fetchItems } from '../utils/fetchItems'
-import ItemDetailContainer from './ItemDetailContainer'
+import { useParams } from 'react-router-dom'
+import { fetchItems } from '../utils/mockAPI'
 import ItemList from './ItemList'
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   const [items, setItems] = useState([])
+  const [error, setError] = useState('')
+  const { categoryID } = useParams()
 
-  const getItems = () => {
-    fetchItemDetail(2).then((data) => {
-      console.log('Data: ', data)
-      setItems(data)
-    })
+  const getItems = (categoryID) => {
+    fetchItems(categoryID)
+      .then((data) => {
+        setItems(data)
+      })
+      .catch((error) => {
+        setError(error)
+      })
   }
 
   useEffect(() => {
-    getItems()
-  }, [])
+    setItems([])
+    setError('')
+    getItems(parseInt(categoryID))
+  }, [categoryID])
 
   return (
-    <div className="p-10">
-      <span className="text-xl font-semibold text-blue-900 ">{greeting}</span>
-      <ItemList items={items} />
-      <ItemDetailContainer id={1} />
+    <div className="px-10 py-4">
+      <p className="py-8 text-xl font-bold">Lista de productos</p>
+      {items.length ? (
+        <ItemList items={items} />
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <p>Cargando...</p>
+      )}
     </div>
   )
 }

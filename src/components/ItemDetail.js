@@ -1,10 +1,25 @@
+import ItemCount from './ItemCount'
+import { getCategoryName } from '../utils/categoryUtils'
+
 const ItemDetail = ({ item }) => {
-  const { id, name } = item
+  const { id, name, description, stock, category } = item
   return (
-    <div className="p-4 bg-cardBackground rounded-xl">
-      <p className="text-xl font-semibold">Detalles</p>
-      <p>ID: {id}</p>
-      <p>Nombre: {name}</p>
+    <div>
+      <div className="p-4 bg-cardBackground rounded-xl">
+        <p>
+          <b>ID:</b> {id}
+        </p>
+        <p>
+          <b>Nombre:</b> {name}
+        </p>
+        <p>
+          <b>Descripción:</b> {description}
+        </p>
+        <p>
+          <b>Categoria:</b> {getCategoryName(category)}
+        </p>
+        <ItemCount stock={stock} />
+      </div>
     </div>
   )
 }
