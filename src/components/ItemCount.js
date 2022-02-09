@@ -16,7 +16,10 @@ const ItemCount = ({
       onClick={onClose}
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
     >
-      <div className="flex flex-col justify-between w-1/2 gap-4 p-6 rounded-lg bg-cardBackground">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="flex flex-col justify-between w-1/2 gap-4 p-6 rounded-lg bg-cardBackground"
+      >
         <div className="flex items-center gap-2">
           <span className="text-gray-500">{stock} disponibles</span>
         </div>
