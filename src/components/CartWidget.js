@@ -16,14 +16,18 @@ const CartWidget = () => {
     setItemCount(newCount)
   }, [cart.prodsSelected])
 
-  return itemCount ? (
-    <div className="relative cursor-pointer">
+  return (
+    <div
+      className={`relative cursor-pointer ${
+        itemCount ? 'visible' : 'invisible'
+      }`}
+    >
       <FontAwesomeIcon icon={faShoppingCart} />
       <div className="absolute flex items-center justify-center w-4 h-4 bg-red-500 rounded-full -right-3 -top-2">
         <span className="text-sm font-bold text-white">{itemCount}</span>
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default CartWidget

@@ -22,7 +22,7 @@ const ItemCount = ({ stock, initial, onAdd, onClose, isAddModalVisible }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex flex-col justify-between w-1/2 gap-4 p-6 rounded-lg bg-cardBackground"
+        className="flex flex-col justify-between w-4/5 gap-4 p-6 rounded-lg lg:w-1/2 bg-cardBackground"
       >
         <div className="flex items-center gap-2">
           <span className="text-gray-500">{stock} disponibles</span>

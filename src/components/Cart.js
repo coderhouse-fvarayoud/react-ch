@@ -8,8 +8,8 @@ const Cart = () => {
 
   return (
     <div className="px-10 py-4">
-      <div className="flex justify-between my-8">
-        <p className="text-xl font-bold ">Carrito</p>
+      <div className="flex flex-wrap justify-between my-8">
+        <p className="text-xl font-bold">Carrito</p>
         <div className="flex gap-4">
           <Button onClick={() => removeAll()}>Vaciar carrito</Button>
           <Button>Finalizar compra</Button>

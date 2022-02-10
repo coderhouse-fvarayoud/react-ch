@@ -26,7 +26,6 @@ const NavBar = () => {
         <div className="hidden lg:block">{renderCategories()}</div>
         <Link to="/cart">
           <div className="flex items-center gap-4">
-            <span>Iniciar sesión</span>
             <CartWidget />
           </div>
         </Link>
