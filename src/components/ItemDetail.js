@@ -1,22 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
 import { getCategoryName } from '../utils/categoryUtils'
+import { useCart } from '../context/CartContext'
+import Button from './Button'
 
 const ItemDetail = ({ item }) => {
-  const { id, name, description, stock, category } = item
+  const { id, name, price, description, stock, category } = item
   const [isAddModalVisible, setIsAddModalVisible] = useState(false)
   const [selectedAmount, setSelectedAmount] = useState(0)
+  const { addItem, getAmountOfItem } = useCart()
+
+  useEffect(() => {
+    setSelectedAmount(getAmountOfItem(id))
+  }, [getAmountOfItem, id])
+
+  const onItemAdd = (amount) => {
+    addItem({
+      id,
+      name,
+      price,
+      amount,
+    })
+    setIsAddModalVisible(false)
+  }
 
   return (
     <>
       <ItemCount
         stock={stock}
         isAddModalVisible={isAddModalVisible}
-        onAdd={(selectedAmount) => {
-          setSelectedAmount(selectedAmount)
-          setIsAddModalVisible(false)
-        }}
+        onAdd={onItemAdd}
+        initial={selectedAmount}
         onClose={() => {
           setIsAddModalVisible(false)
         }}
@@ -35,20 +50,22 @@ const ItemDetail = ({ item }) => {
           <p>
             <b>Categoria:</b> {getCategoryName(category)}
           </p>
+          <p>
+            <b>Precio:</b> ${price}
+          </p>
           <div className="flex gap-3 py-4">
-            <button
+            <Button
               onClick={() => {
                 setIsAddModalVisible(true)
               }}
-              className="p-2 font-bold text-white rounded-lg cursor-pointer bg-primary disabled:bg-gray-600"
             >
-              {selectedAmount ? 'Editar cantidad' : 'Agregar al carrito'}
-            </button>
+              {selectedAmount
+                ? `Editar cantidad (${selectedAmount})`
+                : 'Agregar al carrito'}
+            </Button>
             {selectedAmount ? (
               <Link to="/cart">
-                <button className="p-2 font-bold text-white rounded-lg cursor-pointer bg-primary disabled:bg-gray-600">
-                  Terminar compra
-                </button>
+                <Button>Terminar mi compra</Button>
               </Link>
             ) : null}
           </div>

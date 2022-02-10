@@ -3,7 +3,7 @@ import { getCategoryName, getCategoryIcon } from '../utils/categoryUtils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Item = ({ item }) => {
-  const { id, name, category } = item
+  const { id, name, price, category } = item
 
   return (
     <Link to={`/item/${id}`} className="w-full md:w-auto">
@@ -18,6 +18,7 @@ const Item = ({ item }) => {
         <p>
           <b>{name}</b>
         </p>
+        <p>${price}</p>
         <p className="text-sm text-gray-500">{getCategoryName(category)}</p>
       </div>
     </Link>

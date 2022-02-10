@@ -1,37 +1,42 @@
 [
   {
     "id": 1,
-    "name": "Producto 1",
+    "name": "iPhone 13",
     "category": 1,
     "stock": 10,
+    "price": 1000,
     "description": "Descripción del item 1"
   },
   {
     "id": 2,
-    "name": "Producto 2",
+    "name": "Galaxy S22",
     "category": 1,
     "stock": 5,
+    "price": 900,
     "description": "Descripción del item 2"
   },
   {
     "id": 3,
-    "name": "Producto 3",
+    "name": "PC Gamer",
     "category": 2,
     "stock": 8,
+    "price": 1300,
     "description": "Descripción del item 3"
   },
   {
     "id": 4,
-    "name": "Producto 4",
+    "name": "Lavarropas",
     "category": 3,
     "stock": 0,
+    "price": 500,
     "description": "Descripción del item 4"
   },
   {
     "id": 5,
-    "name": "Producto 5",
+    "name": "Microondas",
     "category": 3,
     "stock": 15,
+    "price": 250,
     "description": "Descripción del item 5"
   }
 ]

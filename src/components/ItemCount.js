@@ -1,15 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import Button from './Button'
 
-const ItemCount = ({
-  stock,
-  initial = 1,
-  onAdd,
-  onClose,
-  isAddModalVisible,
-}) => {
-  const [selectedAmount, setSelectedAmount] = useState(initial)
+const ItemCount = ({ stock, initial, onAdd, onClose, isAddModalVisible }) => {
+  const [currentAmount, setCurrentAmount] = useState(0)
+  const [buttonText, setButtonText] = useState('Agregar')
+
+  useEffect(() => {
+    if (initial === 0) setCurrentAmount(1)
+    else {
+      setButtonText('Editar')
+      setCurrentAmount(initial)
+    }
+  }, [initial])
 
   return isAddModalVisible ? (
     <div
@@ -30,18 +34,17 @@ const ItemCount = ({
               <div
                 onClick={(e) => {
                   e.stopPropagation()
-                  selectedAmount > 1 && setSelectedAmount(selectedAmount - 1)
+                  currentAmount > 1 && setCurrentAmount(currentAmount - 1)
                 }}
                 className="flex items-center justify-center w-8 h-8 mr-4 text-white rounded-full cursor-pointer bg-primary"
               >
                 <FontAwesomeIcon icon={faMinus} />
               </div>
-              <p className="text-xl font-bold">{selectedAmount}</p>
+              <p className="text-xl font-bold">{currentAmount}</p>
               <div
                 onClick={(e) => {
                   e.stopPropagation()
-                  selectedAmount < stock &&
-                    setSelectedAmount(selectedAmount + 1)
+                  currentAmount < stock && setCurrentAmount(currentAmount + 1)
                 }}
                 className="flex items-center justify-center w-8 h-8 ml-4 text-white rounded-full cursor-pointer bg-primary"
               >
@@ -52,13 +55,12 @@ const ItemCount = ({
         ) : (
           <span>El producto no tiene stock</span>
         )}
-        <button
+        <Button
           disabled={stock < 1}
-          onClick={() => stock > 0 && onAdd(selectedAmount)}
-          className="p-2 font-bold text-white rounded-lg cursor-pointer bg-primary disabled:bg-gray-600"
+          onClick={() => stock > 0 && onAdd(currentAmount)}
         >
-          Agregar
-        </button>
+          {buttonText}
+        </Button>
       </div>
     </div>
   ) : null

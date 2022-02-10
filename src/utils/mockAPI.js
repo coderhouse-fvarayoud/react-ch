@@ -9,7 +9,7 @@ export const fetchItems = (categoryID) => {
     setTimeout(() => {
       if (items.length) resolve(items)
       else reject('No se encontraron productos')
-    }, 1000)
+    }, 200)
   })
 }
 
@@ -20,6 +20,6 @@ export const fetchItemDetail = (id) => {
     setTimeout(() => {
       if (item) resolve(item)
       else reject('No se encontro producto')
-    }, 1000)
+    }, 200)
   })
 }
