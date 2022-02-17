@@ -14,7 +14,7 @@ const Item = ({ item }) => {
           <FontAwesomeIcon
             icon={getCategoryIcon(category)}
             size="2x"
-            className="text-primary"
+            className="text-purple-600"
           />
         </div>
         <p>

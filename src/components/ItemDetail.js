@@ -52,13 +52,19 @@ const ItemDetail = ({ item }) => {
           <p>
             <b>Precio:</b> ${price}
           </p>
+          <p>
+            <b>Stock:</b> {stock}
+          </p>
           <div className="flex gap-3 py-4">
             <Button
+              disabled={!stock}
               onClick={() => {
                 setIsAddModalVisible(true)
               }}
             >
-              {selectedAmount
+              {!stock
+                ? 'El producto no tiene stock'
+                : selectedAmount
                 ? `Editar cantidad (${selectedAmount})`
                 : 'Agregar al carrito'}
             </Button>

@@ -1,10 +1,17 @@
-const Button = ({ children, ...props }) => {
+import Spinner from './Spinner'
+
+const Button = ({ children, loading, ...props }) => {
   return (
     <button
-      className="p-2 font-bold text-white rounded-lg cursor-pointer bg-primary disabled:bg-gray-600"
+      className="relative p-2 font-bold text-white bg-purple-600 rounded-lg cursor-pointer disabled:bg-purple-300"
       {...props}
     >
-      {children}
+      <span className={`${loading ? 'invisible' : 'visible'}`}>{children}</span>
+      {loading ? (
+        <div className="absolute inset-0 ">
+          <Spinner />
+        </div>
+      ) : null}
     </button>
   )
 }

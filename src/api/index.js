@@ -6,6 +6,8 @@ import {
   doc,
   getDoc,
   addDoc,
+  updateDoc,
+  increment,
 } from 'firebase/firestore'
 import { db } from '../utils/firebase'
 
@@ -58,4 +60,15 @@ export const fetchCategories = async () => {
     }
   })
   return data
+}
+
+export const addOrder = (order) => {
+  return addDoc(collection(db, 'orders'), order)
+}
+
+export const reduceStock = async (productId, amount) => {
+  const dbItemRef = doc(db, 'products', productId)
+  await updateDoc(dbItemRef, {
+    stock: increment(-amount),
+  })
 }
