@@ -15,8 +15,11 @@ export const AppProvider = ({ children }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
+    console.log(cart)
+  }, [cart])
+
+  useEffect(() => {
     if (categories.length) return
-    console.log('Fetching categories...')
     fetchCategories().then((data) => {
       if (data) setCategories(data)
     })

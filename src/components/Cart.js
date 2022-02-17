@@ -16,7 +16,9 @@ const Cart = () => {
         </div>
       </div>
       {cart.prodsSelected.length ? (
-        cart.prodsSelected.map((cartItem) => <CartItem item={cartItem} />)
+        cart.prodsSelected.map((cartItem, idx) => (
+          <CartItem key={cartItem.id} item={cartItem} />
+        ))
       ) : (
         <div className="flex flex-col gap-4">
           <p>Aún no tiene productos en el carrito</p>
