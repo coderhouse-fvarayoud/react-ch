@@ -1,4 +1,3 @@
-import categories from '../data/categories.json'
 import {
   faSun,
   faMoon,
@@ -6,17 +5,13 @@ import {
   faImages,
 } from '@fortawesome/free-regular-svg-icons'
 
-export const getCategoryName = (id) => {
-  return categories.find((category) => category.id === id).name || ''
-}
-
 export const getCategoryIcon = (id) => {
   switch (id) {
-    case 1:
+    case '20U57dXl8fl6W8KGAPKx':
       return faSun
-    case 2:
+    case '8LGAgXw40pw5NYTdujw6':
       return faMoon
-    case 3:
+    case 'jtvDChUzcDl6uQormBYF':
       return faSnowflake
     default:
       return faImages

@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { useCart } from '../context/CartContext'
+import { useAppContext } from '../context/AppContext'
 import { useEffect } from 'react'
 
 const CartWidget = () => {
   const [itemCount, setItemCount] = useState(0)
-  const { cart } = useCart()
+  const { cart } = useAppContext()
 
   useEffect(() => {
     let newCount = 0

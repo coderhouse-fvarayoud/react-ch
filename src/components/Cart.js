@@ -1,17 +1,17 @@
-import { useCart } from '../context/CartContext'
+import { useAppContext } from '../context/AppContext'
 import { Link } from 'react-router-dom'
 import Button from './Button'
 import CartItem from './CartItem'
 
 const Cart = () => {
-  const { cart, removeAll } = useCart()
+  const { cart, clearCart } = useAppContext()
 
   return (
     <div className="px-10 py-4">
       <div className="flex flex-wrap justify-between my-8">
         <p className="text-xl font-bold">Carrito</p>
         <div className="flex gap-4">
-          <Button onClick={() => removeAll()}>Vaciar carrito</Button>
+          <Button onClick={() => clearCart()}>Vaciar carrito</Button>
           <Button>Finalizar compra</Button>
         </div>
       </div>

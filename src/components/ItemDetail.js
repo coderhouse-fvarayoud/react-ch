@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
-import { getCategoryName } from '../utils/categoryUtils'
-import { useCart } from '../context/CartContext'
+import { useAppContext } from '../context/AppContext'
 import Button from './Button'
 
 const ItemDetail = ({ item }) => {
   const { id, name, price, description, stock, category } = item
   const [isAddModalVisible, setIsAddModalVisible] = useState(false)
   const [selectedAmount, setSelectedAmount] = useState(0)
-  const { addItem, getAmountOfItem } = useCart()
+  const { addItem, getAmountOfItem, getCategoryName } = useAppContext()
 
   useEffect(() => {
     setSelectedAmount(getAmountOfItem(id))

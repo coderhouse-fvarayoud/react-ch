@@ -1,19 +1,25 @@
 import MenuIcon from '../assets/menu.svg'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
-import categories from '../data/categories.json'
+import { useAppContext } from '../context/AppContext'
 
-const renderCategories = () => (
-  <ul className="flex gap-4">
-    {categories.map((category, idx) => (
-      <Link key={category.id} to={`/category/${category.id}`}>
-        <li key={idx}>{category.name}</li>
-      </Link>
-    ))}
-  </ul>
-)
+const renderCategories = (categories) => {
+  if (categories) {
+    return (
+      <ul className="flex gap-4">
+        {categories.map((category, idx) => (
+          <Link key={category.id} to={`/category/${category.id}`}>
+            <li key={idx}>{category.name}</li>
+          </Link>
+        ))}
+      </ul>
+    )
+  } else return null
+}
 
 const NavBar = () => {
+  const { categories } = useAppContext()
+
   return (
     <header className="">
       <div className="sticky flex items-center justify-between w-full h-16 px-10 text-white bg-black">
@@ -23,7 +29,7 @@ const NavBar = () => {
         <Link to="/">
           <div className="text-xl font-bold">Logo</div>
         </Link>
-        <div className="hidden lg:block">{renderCategories()}</div>
+        <div className="hidden lg:block">{renderCategories(categories)}</div>
         <Link to="/cart">
           <div className="flex items-center gap-4">
             <CartWidget />
@@ -31,7 +37,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="flex justify-center p-6 text-white lg:hidden bg-slate-900">
-        {renderCategories()}
+        {renderCategories(categories)}
       </div>
     </header>
   )

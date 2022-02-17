@@ -1,16 +1,26 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { fetchCategories } from '../api/index'
 
-export const CartContext = createContext()
+export const AppContext = createContext()
 
-export const useCart = () => useContext(CartContext)
+export const useAppContext = () => useContext(AppContext)
 
 const INITIAL_STATE = {
   prodsSelected: [],
   total: 0,
 }
 
-export const CartProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
   const [cart, setCart] = useState(INITIAL_STATE)
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    if (categories.length) return
+    console.log('Fetching categories...')
+    fetchCategories().then((data) => {
+      if (data) setCategories(data)
+    })
+  }, [categories])
 
   useEffect(() => {
     const calculateTotal = () => {
@@ -48,15 +58,31 @@ export const CartProvider = ({ children }) => {
     })
   }
 
-  const removeAll = () => {
+  const clearCart = () => {
     setCart({ ...cart, prodsSelected: [] })
   }
 
+  const getCategoryName = (categoryID) => {
+    if (!categories.length) return ''
+    const name = categories.find((category) => category.id === categoryID)
+    if (name) {
+      return name.name
+    } else return ''
+  }
+
   return (
-    <CartContext.Provider
-      value={{ cart, addItem, getAmountOfItem, removeItem, removeAll }}
+    <AppContext.Provider
+      value={{
+        cart,
+        addItem,
+        getAmountOfItem,
+        removeItem,
+        clearCart,
+        categories,
+        getCategoryName,
+      }}
     >
       {children}
-    </CartContext.Provider>
+    </AppContext.Provider>
   )
 }

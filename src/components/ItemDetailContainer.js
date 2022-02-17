@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { fetchItemDetail } from '../utils/mockAPI'
+import { fetchProductById } from '../api/index'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
@@ -11,12 +11,16 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     if (!itemID) return
 
-    fetchItemDetail(parseInt(itemID))
+    fetchProductById(itemID)
       .then((item) => {
-        setItem(item)
+        if (item) {
+          setItem(item)
+        } else {
+          setError('No se encontro el producto.')
+        }
       })
       .catch((error) => {
-        setError(error)
+        console.error(error)
       })
   }, [itemID])
 
