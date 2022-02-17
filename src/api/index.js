@@ -10,6 +10,7 @@ import {
   increment,
 } from 'firebase/firestore'
 import { db } from '../utils/firebase'
+import initialProducts from '../data/initialProducts.json'
 
 //Se usa para obtener todos los productos de firebase o filtrarlos por categoría
 export const fetchProducts = async (categoryID) => {
@@ -41,11 +42,11 @@ export const fetchProductById = async (id) => {
   } else return null
 }
 
-export const addItems = async (data, objetive) => {
-  if (!data.length || !objetive) return
+export const reloadProducts = async () => {
+  const data = initialProducts
+  if (!data.length) return
   data.forEach(async (item) => {
-    console.log('Adding: ', item)
-    return addDoc(collection(db, objetive), item)
+    addDoc(collection(db, 'products'), item)
   })
 }
 
@@ -59,6 +60,20 @@ export const fetchCategories = async () => {
       ...item.data(),
     }
   })
+  return data
+}
+
+export const fetchOrders = async () => {
+  const dbOrdersRef = collection(db, 'orders')
+  console.log('Fetching orders...')
+  const res = await getDocs(dbOrdersRef)
+  const data = res.docs.map((item) => {
+    return {
+      id: item.id,
+      ...item.data(),
+    }
+  })
+  console.log('Ordenes actuales: ', data)
   return data
 }
 

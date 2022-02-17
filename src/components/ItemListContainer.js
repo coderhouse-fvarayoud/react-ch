@@ -4,6 +4,7 @@ import { fetchProducts } from '../api/index'
 import ItemList from './ItemList'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
+import { reloadProducts, fetchOrders } from '../api/index'
 
 const ItemListContainer = () => {
   const [items, setItems] = useState(null)
@@ -22,10 +23,20 @@ const ItemListContainer = () => {
   }
 
   useEffect(() => {
+    !categoryID && fetchOrders()
+  }, [categoryID])
+
+  useEffect(() => {
     setItems(null)
     setError('')
     getItems(categoryID)
   }, [categoryID])
+
+  const resetBaseDeDatos = async () => {
+    if (categoryID) return
+    console.log('Volviendo base de datos de productos a su valor original...')
+    await reloadProducts()
+  }
 
   return (
     <div className="px-10 py-4">
@@ -39,7 +50,7 @@ const ItemListContainer = () => {
         items.length ? (
           <ItemList items={items} />
         ) : (
-          <p>No se encontraron productos</p>
+          <p onClick={resetBaseDeDatos}>No se encontraron productos</p>
         )
       ) : error ? (
         <p>{error}</p>

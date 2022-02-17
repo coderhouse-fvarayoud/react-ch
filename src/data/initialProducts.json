@@ -1,0 +1,44 @@
+[
+  {
+    "name": "iPhone 13",
+    "category": "jtvDChUzcDl6uQormBYF",
+    "stock": 10,
+    "price": 1000,
+    "description": "Descripción del item 1"
+  },
+  {
+    "name": "Galaxy S22",
+    "category": "jtvDChUzcDl6uQormBYF",
+    "stock": 10,
+    "price": 900,
+    "description": "Descripción del item 2"
+  },
+  {
+    "name": "Playstation 5",
+    "category": "20U57dXl8fl6W8KGAPKx",
+    "stock": 10,
+    "price": 1300,
+    "description": "Descripción del item"
+  },
+  {
+    "name": "Xbox Series X",
+    "category": "20U57dXl8fl6W8KGAPKx",
+    "stock": 10,
+    "price": 1300,
+    "description": "Descripción del item"
+  },
+  {
+    "name": "Lavarropas",
+    "category": "8LGAgXw40pw5NYTdujw6",
+    "stock": 10,
+    "price": 500,
+    "description": "Descripción del item Lavarropas"
+  },
+  {
+    "name": "Microondas",
+    "category": "8LGAgXw40pw5NYTdujw6",
+    "stock": 10,
+    "price": 250,
+    "description": "Descripción del item Microondas"
+  }
+]
