@@ -20,6 +20,7 @@ const ItemCount = ({ stock, initial, onAdd, onClose, isAddModalVisible }) => {
       onAccept={() => stock > 0 && onAdd(currentAmount)}
       onClose={onClose}
       acceptButtonText={buttonText}
+      cancelButtonText="Cancelar"
       visible={isAddModalVisible}
     >
       <div className="flex items-center gap-2 py-5">

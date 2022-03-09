@@ -1,7 +1,11 @@
+import { faClock, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchProductById } from '../api/index'
 import ItemDetail from './ItemDetail'
+import Loader from './Loader'
+import Spinner from './Spinner'
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null)
@@ -25,14 +29,14 @@ const ItemDetailContainer = () => {
   }, [itemID])
 
   return (
-    <div className="px-10 py-4">
+    <div className="px-6 md:px-10 py-4">
       <p className="py-8 text-xl font-bold">Detalle del producto</p>
       {item ? (
         <ItemDetail item={item} />
       ) : error ? (
         <div className="text-red-500">{error}</div>
       ) : (
-        'Cargando...'
+        <Loader />
       )}
     </div>
   )

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { fetchCategories } from '../api/index'
+import { fetchCategories, reloadProducts } from '../api/index'
 
 export const AppContext = createContext()
 
@@ -7,12 +7,17 @@ export const useAppContext = () => useContext(AppContext)
 
 const INITIAL_STATE = {
   prodsSelected: [],
+  itemCount: 0,
   total: 0,
 }
 
 export const AppProvider = ({ children }) => {
   const [cart, setCart] = useState(INITIAL_STATE)
   const [categories, setCategories] = useState([])
+
+  // useEffect(() => {
+  //   reloadProducts()
+  // }, [])
 
   useEffect(() => {
     if (categories.length) return
@@ -22,15 +27,15 @@ export const AppProvider = ({ children }) => {
   }, [categories])
 
   useEffect(() => {
-    const calculateTotal = () => {
-      let currentTotal = 0
-      cart.prodsSelected.forEach((prod) => {
-        currentTotal += prod.price * prod.amount
-      })
-      return currentTotal
-    }
+    let currentTotal = 0
+    let newCount = 0
 
-    setCart({ ...cart, total: calculateTotal() })
+    cart.prodsSelected.forEach((prod) => {
+      currentTotal += prod.price * prod.amount
+      newCount += prod.amount
+    })
+
+    setCart({ ...cart, total: currentTotal, itemCount: newCount })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart.prodsSelected])
 

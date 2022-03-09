@@ -1,44 +1,98 @@
 [
   {
-    "name": "iPhone 13",
-    "category": "jtvDChUzcDl6uQormBYF",
-    "stock": 10,
-    "price": 1000,
-    "description": "Descripción del item 1"
-  },
-  {
-    "name": "Galaxy S22",
-    "category": "jtvDChUzcDl6uQormBYF",
-    "stock": 10,
-    "price": 900,
-    "description": "Descripción del item 2"
-  },
-  {
     "name": "Playstation 5",
     "category": "20U57dXl8fl6W8KGAPKx",
     "stock": 10,
-    "price": 1300,
-    "description": "Descripción del item"
+    "price": 500,
+    "description": "Step up your gaming experience with the PlayStation 5. Enjoy lightning-fast loading with an ultra-high speed SSD, deep immersion with haptic feedback, adaptive triggers, and 3D audio. With Game Boost revisit your favorite content enhanced. Appreciate faster and smoother game rates. Play has no limits with the all-new generation of incredible PlayStation games.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/1.jpg?alt=media&token=8890c69d-e045-429e-9c16-f1b96ec00f56"
   },
   {
     "name": "Xbox Series X",
     "category": "20U57dXl8fl6W8KGAPKx",
     "stock": 10,
-    "price": 1300,
-    "description": "Descripción del item"
-  },
-  {
-    "name": "Lavarropas",
-    "category": "8LGAgXw40pw5NYTdujw6",
-    "stock": 10,
     "price": 500,
-    "description": "Descripción del item Lavarropas"
+    "description": "Introducing Xbox Series X, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles—all games look and play best on Xbox Series X. At the heart of Series X is the Xbox Velocity Architecture, which pairs a custom SSD with integrated software for faster, streamlined gameplay with significantly reduced load times. Seamlessly move between multiple games in a flash with Quick Resume. Explore rich new worlds and enjoy the action like never before with the unmatched 12 teraflops of raw graphic processing power. Enjoy 4K gaming at up to 120 frames per second, advanced 3D spatial sound, and more.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/seriesx.jpg?alt=media&token=241a611e-ba1e-44c5-972d-df4a7e474b13"
   },
   {
-    "name": "Microondas",
+    "name": "Nintendo Switch",
+    "category": "20U57dXl8fl6W8KGAPKx",
+    "stock": 10,
+    "price": 359,
+    "description": "Introducing Nintendo Switch, the new home video game system from Nintendo. In addition to providing single and multiplayer thrills at home, the Nintendo Switch system can be taken on the go so players can enjoy a full home Nintendo Switch console experience anytime, anywhere. The mobility of a handheld is now added to the power of a home gaming system, with unprecedented new play styles brought to life by the two new Nintendo Switch Joy-Con controllers.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/switch.jpg?alt=media&token=5239c0bf-0f2d-4cdf-a1e5-918b6978390e"
+  },
+  {
+    "name": "The Last of Us Remastered",
     "category": "8LGAgXw40pw5NYTdujw6",
     "stock": 10,
-    "price": 250,
-    "description": "Descripción del item Microondas"
+    "price": 50,
+    "description": "The Last of Us™ has been rebuilt for the PlayStation®4. Some of the gameplay improvements include full 1080p, higher resolution character models, improved shadows, better lighting, and much more. 20 years after a pandemic has radically changed known civilization, infected humans run wild and survivors are killing each other for food, weapons; whatever they can get their hands on.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/tlou.webp?alt=media&token=9ed68cdd-dc8f-40b7-8015-b0dcec2d9ec8"
+  },
+  {
+    "name": "Elden Ring",
+    "category": "8LGAgXw40pw5NYTdujw6",
+    "stock": 10,
+    "price": 60,
+    "description": "ELDEN RING, developed by FromSoftware Inc. and produced by BANDAI NAMCO Entertainment Inc., is a fantasy action-RPG and FromSoftware’s largest game to date, set within a world full of mystery and peril.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/eldenring.webp?alt=media&token=5ee9b9d6-bcde-4dd5-bc66-902a8e54b205"
+  },
+  {
+    "name": "Mario Kart 8 Deluxe",
+    "category": "8LGAgXw40pw5NYTdujw6",
+    "stock": 10,
+    "price": 60,
+    "description": "Hit the road with the definitive version of Mario Kart 8 and play anytime, any-where! Race your friends or battle them in a revised battle mode on new and returning battle courses. Play locally in up to 4-player multiplayer in 1080p while playing in TV Mode. Every track from the Wii U version, including DLC, makes a glorious return. Plus, the Inklings appear as all-new guest characters, along with returning favorites, such as King Boo, Dry Bones, and Bowser Jr.!",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/mariokart.webp?alt=media&token=db49979b-e226-43a9-b84a-c357b11368e3"
+  },
+  {
+    "name": "Grand Theft Auto V",
+    "category": "8LGAgXw40pw5NYTdujw6",
+    "stock": 10,
+    "price": 30,
+    "description": "Welcome to Los Santos where self-help gurus, starlets, and fading celebrities, once the envy of the Western world, are now struggling to stay afloat. In Grand Theft Auto V: Premium Edition, you follow the epic storylines of A young street hustler, a retired bank robber and a terrifying psychopath. The trio must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/gtav.webp?alt=media&token=fd400fb7-aac8-4ebc-932d-5ad29d186a91"
+  },
+  {
+    "name": "Razer Blade 14",
+    "category": "jtvDChUzcDl6uQormBYF",
+    "stock": 10,
+    "price": 2199,
+    "description": "Experience pure processing power that can handle the most resource-hungry AAA games and programs smoothly, yet remains incredibly efficient on battery life with up to 10 hours. This powerhouse is crafted on Ampere—NVIDIA’s 2nd-gen RTX architecture—with new RT Cores, Tensor Cores, and streaming multiprocessors to give you ray-traced graphics and cutting-edge features.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/razer.webp?alt=media&token=6ac47d4b-f8ba-4a92-8eec-f9d79c441a34"
+  },
+  {
+    "name": "Acer Nitro 5",
+    "category": "jtvDChUzcDl6uQormBYF",
+    "stock": 10,
+    "price": 1099,
+    "description": "Go full throttle with an AMD Ryzen™ 5000 Series Mobile Processor, GeForce RTX™ 30 Series Laptop GPUs and your choice of either QHD at 165Hz or FHD at 360Hz. Speed’s the game and the Nitro 5 came to play!",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/acer.webp?alt=media&token=92043204-e48b-45b3-90b7-611fefcd23f8"
+  },
+  {
+    "name": "Sony DualSense Wireless Controller",
+    "category": "knJwNGxVX0V7R58f34CE",
+    "stock": 10,
+    "price": 69,
+    "description": "Experience the power of gaming at your fingertips. The Sony DualSense Wireless Controller enhances your gaming experience. With revolutionary features and comfort with intuitive, precision controls you can fully experience your favorite video games. This wireless controller offers immersive haptic feedback, dynamic adaptive triggers and a built-in microphone, all integrated into an iconic comfortable design.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/dualsense.webp?alt=media&token=6dbefc48-ad79-477e-9ff3-3e6d4b2bd45f"
+  },
+  {
+    "name": "Xbox Wireless Controllerk",
+    "category": "knJwNGxVX0V7R58f34CE",
+    "stock": 10,
+    "price": 49,
+    "description": "Experience the modernized design of the Xbox Wireless Controller in Carbon Black, featuring sculpted surfaces and refined geometry for enhanced comfort during gameplay with battery usage up to 40 hours. Stay on target with a hybrid D-pad and textured grip on the triggers, bumpers, and back-case. Seamlessly capture and share content such as screenshots, recordings, and more with the Share button. Connect using the USB-C port for direct plug and play to console and PC. Support for AA batteries is included on the rear. Plug in any compatible headset with the 3.5mm audio jack. Use the Xbox Accessories app to remap buttons and create custom controller profiles for your favorite games. Quickly pair with, play on, and switch between devices including Xbox Series X|S, Xbox One, Windows 10 PCs, and Android. iOS support coming in the future.*",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/xboxcontroller.webp?alt=media&token=c5d6b797-dc38-4d01-9d78-a366aca37b80"
+  },
+  {
+    "name": "SteelSeries Arctis 9X",
+    "category": "knJwNGxVX0V7R58f34CE",
+    "stock": 10,
+    "price": 189,
+    "description": "Get the best out of your gaming experience with the Arctis 9X Wireless Gaming Headset for Xbox One. Eliminate background noise while you strategize on the battlefield with ClearCast noise canceling audio. Play all day with athletics-inspired performance fabric AirWeave ear cushions that keep your ears cool and dry. Connect directly to your Xbox just like a wireless controller, and start gaming in seconds with no cable or dongle required. This is the premier wireless headset for Xbox gamers.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/react-coderhouse-db.appspot.com/o/headphones.webp?alt=media&token=f34b2923-556d-489b-be75-c53e2351ce88"
   }
 ]

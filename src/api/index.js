@@ -12,7 +12,6 @@ import {
 import { db } from '../utils/firebase'
 import initialProducts from '../data/initialProducts.json'
 
-//Se usa para obtener todos los productos de firebase o filtrarlos por categoría
 export const fetchProducts = async (categoryID) => {
   let customQuery = collection(db, 'products')
   if (categoryID) {

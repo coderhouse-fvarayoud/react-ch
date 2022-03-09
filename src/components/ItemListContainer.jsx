@@ -5,6 +5,10 @@ import ItemList from './ItemList'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import { reloadProducts, fetchOrders } from '../api/index'
+import Spinner from './Spinner'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle, faClock, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import Loader from './Loader'
 
 const ItemListContainer = () => {
   const [items, setItems] = useState(null)
@@ -34,12 +38,11 @@ const ItemListContainer = () => {
 
   const resetBaseDeDatos = async () => {
     if (categoryID) return
-    console.log('Volviendo base de datos de productos a su valor original...')
     await reloadProducts()
   }
 
   return (
-    <div className="px-10 py-4">
+    <div className="px-6 md:px-10 py-4">
       <div className="py-8">
         <Link to="/">
           <span className="text-xl font-bold ">Todos los productos</span>
@@ -55,7 +58,7 @@ const ItemListContainer = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <p>Cargando...</p>
+        <Loader />
       )}
     </div>
   )

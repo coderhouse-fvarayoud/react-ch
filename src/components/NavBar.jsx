@@ -2,42 +2,41 @@ import MenuIcon from '../assets/menu.svg'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
-
-const renderCategories = (categories) => {
-  if (categories) {
-    return (
-      <ul className="flex gap-4">
-        {categories.map((category, idx) => (
-          <Link key={category.id} to={`/category/${category.id}`}>
-            <li key={idx}>{category.name}</li>
-          </Link>
-        ))}
-      </ul>
-    )
-  } else return null
-}
+import Portal from './Portal'
+import Sidebar from './Sidebar'
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faBars,
+  faX,
+  faCircle,
+  faExclamationCircle,
+} from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = () => {
-  const { categories } = useAppContext()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   return (
-    <header className="">
+    <header>
+      <Sidebar
+        visible={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
       <div className="sticky flex items-center justify-between w-full h-16 px-10 text-white bg-black">
-        <div className="block cursor-pointer lg:hidden">
-          <img src={MenuIcon} alt="Menu icon" />
+        <div
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="flex cursor-pointer"
+        >
+          <FontAwesomeIcon icon={isSidebarOpen ? faX : faBars} />
         </div>
-        <Link to="/">
-          <div className="text-xl font-bold">Logo</div>
+        <Link to="/" onClick={() => setIsSidebarOpen(false)}>
+          <div className="text-xl font-bold">GameStore</div>
         </Link>
-        <div className="hidden lg:block">{renderCategories(categories)}</div>
-        <Link to="/cart">
+        <Link to="/cart" onClick={() => setIsSidebarOpen(false)}>
           <div className="flex items-center gap-4">
             <CartWidget />
           </div>
         </Link>
-      </div>
-      <div className="flex justify-center p-6 text-white lg:hidden bg-slate-900">
-        {renderCategories(categories)}
       </div>
     </header>
   )
