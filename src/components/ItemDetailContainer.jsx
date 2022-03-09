@@ -1,11 +1,8 @@
-import { faClock, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchProductById } from '../api/index'
 import ItemDetail from './ItemDetail'
 import Loader from './Loader'
-import Spinner from './Spinner'
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null)

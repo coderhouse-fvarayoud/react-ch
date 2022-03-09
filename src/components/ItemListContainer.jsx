@@ -5,9 +5,6 @@ import ItemList from './ItemList'
 import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import { reloadProducts, fetchOrders } from '../api/index'
-import Spinner from './Spinner'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faClock, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import Loader from './Loader'
 
 const ItemListContainer = () => {

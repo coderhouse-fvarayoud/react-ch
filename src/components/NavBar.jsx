@@ -1,17 +1,9 @@
-import MenuIcon from '../assets/menu.svg'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
-import { useAppContext } from '../context/AppContext'
-import Portal from './Portal'
 import Sidebar from './Sidebar'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBars,
-  faX,
-  faCircle,
-  faExclamationCircle,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)

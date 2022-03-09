@@ -23,6 +23,7 @@ const ItemCount = ({ stock, initial, onAdd, onClose, isAddModalVisible }) => {
       cancelButtonText="Cancelar"
       visible={isAddModalVisible}
     >
+      <p className="font-bold text-xl">Agregar al carrito</p>
       <div className="flex items-center gap-2 py-5">
         <span className="text-gray-500">{stock} disponibles</span>
       </div>

@@ -39,7 +39,7 @@ const Modal = ({
               }`}
             >
               <div>{children}</div>
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-end gap-4 pt-6">
                 {cancelButtonText ? (
                   <Button primary={false} onClick={onClose}>
                     Cancelar

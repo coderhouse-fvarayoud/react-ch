@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { serverTimestamp } from 'firebase/firestore'
 import { useAppContext } from '../context/AppContext'
@@ -8,15 +8,7 @@ import { addOrder, reduceStock } from '../api'
 import Modal from './Modal'
 import Input from './Input'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import {
-  faArrowLeft,
-  faCartArrowDown,
-  faCheck,
-  faHome,
-  faMotorcycle,
-  faPhone,
-  faStore,
-} from '@fortawesome/free-solid-svg-icons'
+import { faCartArrowDown, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const PHONE_REGEX = /^\(\d{2,5}\)\s\d{2,4}-\d{4}$|^\d{6,13}$/
@@ -52,7 +44,7 @@ const initialFormData = {
     regex: PHONE_REGEX,
     errorMessages: {
       isEmptyMessage: 'Debés ingresar una teléfono',
-      isInvalidMessage: 'El teléfono ingresada no es válido',
+      isInvalidMessage: 'El teléfono ingresado no es válido',
     },
   },
   email: {
@@ -74,7 +66,7 @@ const initialFormData = {
     regex: null,
     errorMessages: {
       isEmptyMessage: 'Debés confirmar tu email',
-      isInvalidMessage: '',
+      isInvalidMessage: 'Los correos no coinciden',
     },
   },
 }
@@ -86,6 +78,10 @@ const Cart = () => {
   const [modalText, setModalText] = useState('')
   const navigate = useNavigate()
   const [formData, setFormData] = useState(initialFormData)
+
+  useEffect(() => {
+    setFormData(initialFormData)
+  }, [])
 
   const generarOrden = () => {
     setLoading(true)
@@ -111,8 +107,6 @@ const Cart = () => {
       date,
       total,
     }
-
-    console.log('Creando orden: ', order)
 
     addOrder(order)
       .then((data) => {
@@ -142,6 +136,13 @@ const Cart = () => {
         errors = true
       }
       newFormData[property].opened = true
+    }
+    if (formData.email.value !== formData.confirmedEmail.value) {
+      errors = true
+      newFormData.confirmedEmail.error =
+        formData.confirmedEmail.errorMessages.isInvalidMessage
+    } else {
+      newFormData.confirmedEmail.error = null
     }
     setFormData({ ...newFormData })
 
@@ -177,9 +178,6 @@ const Cart = () => {
     <>
       <Modal
         visible={isModalVisible}
-        onClose={() => {
-          setIsModalVisible(false)
-        }}
         onAccept={() => {
           clearCart()
           setIsModalVisible(false)

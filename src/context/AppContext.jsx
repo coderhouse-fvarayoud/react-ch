@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { fetchCategories, reloadProducts } from '../api/index'
+import { fetchCategories } from '../api/index'
 
 export const AppContext = createContext()
 
