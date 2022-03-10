@@ -3,7 +3,7 @@ import Spinner from './Spinner'
 const Button = ({ children, loading, className, primary = true, ...props }) => {
   return (
     <button
-      className={`relative p-2 flex justify-center flex-none font-bold  ${
+      className={`relative p-2 flex justify-center items-center flex-none font-bold  ${
         primary ? 'bg-purple-600 text-white' : 'bg-transparent text-purple-600'
       } rounded-lg cursor-pointer disabled:bg-purple-300 transition ease-in-out duration-200 hover:scale-105 ${className}`}
       {...props}

@@ -4,7 +4,7 @@ import { serverTimestamp } from 'firebase/firestore'
 import { useAppContext } from '../context/AppContext'
 import Button from './Button'
 import CartItem from './CartItem'
-import { addOrder, reduceStock } from '../api'
+import { addOrder, fetchProductById, reduceStock } from '../api'
 import Modal from './Modal'
 import Input from './Input'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { initialCheckoutFormData } from '../utils'
 
 const Checkout = () => {
-  const { cart, clearCart } = useAppContext()
+  const { cart, clearCart, removeItem } = useAppContext()
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [loading, setLoading] = useState(false)
   const [modalText, setModalText] = useState('')
@@ -29,8 +29,27 @@ const Checkout = () => {
     setFormData(initialCheckoutFormData)
   }, [])
 
-  const generarOrden = () => {
+  //Verificar que el producto aun tenga stock antes de procesar la orden
+  const checkStock = async () => {
     setLoading(true)
+    let cartValid = true
+    for (const item of cart.prodsSelected) {
+      const prod = await fetchProductById(item.id)
+      if (prod.stock < item.amount) {
+        removeItem(prod.id)
+        setModalText(
+          `El producto ${prod.name} no tiene stock suficiente y será eliminado de tu carrito`
+        )
+        cartValid = false
+        setIsModalVisible(true)
+        setLoading(false)
+      }
+    }
+
+    if (cartValid) generarOrden()
+  }
+
+  const generarOrden = () => {
     const buyer = {
       name: formData.name.value,
       surname: formData.surname.value,
@@ -92,7 +111,7 @@ const Checkout = () => {
     }
     setFormData({ ...newFormData })
 
-    if (!errors) generarOrden()
+    if (!errors) checkStock()
   }
 
   const handleInputChange = (name, value, blur) => {
