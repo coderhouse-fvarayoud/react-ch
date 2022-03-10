@@ -16,10 +16,6 @@ export const AppProvider = ({ children }) => {
   const [cart, setCart] = useLocalStorage('cart', INITIAL_STATE)
   const [categories, setCategories] = useState([])
 
-  // useEffect(() => {
-  //   reloadProducts()
-  // }, [])
-
   useEffect(() => {
     if (categories.length) return
     fetchCategories().then((data) => {
