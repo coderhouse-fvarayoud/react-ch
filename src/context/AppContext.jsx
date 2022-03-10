@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { fetchCategories, reloadProducts } from '../api/index'
+import { fetchCategories } from '../api/index'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 export const AppContext = createContext()
