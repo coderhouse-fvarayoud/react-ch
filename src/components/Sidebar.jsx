@@ -14,7 +14,7 @@ const Sidebar = ({ visible, onClose }) => {
             initial={{ opacity: 0, x: '-100%' }}
             animate={{ opacity: 1, x: 0, transition: { duration: 0.25 } }}
             exit={{ opacity: 0, x: '-100%', transition: { duration: 0.25 } }}
-            className="bg-black p-4 shadow-2xl text-white flex flex-col fixed top-[64px] bottom-0 left-0 w-full md:w-60"
+            className="bg-black z-40 p-4 shadow-2xl text-white flex flex-col fixed top-[64px] bottom-0 left-0 w-full md:w-60 shadow-black"
           >
             <p className="font-bold text-xl">Categorias</p>
             {categories && (
@@ -22,8 +22,8 @@ const Sidebar = ({ visible, onClose }) => {
                 {categories.map((category, idx) => (
                   <Link
                     onClick={onClose}
-                    key={category.id}
-                    to={`/category/${category.id}`}
+                    key={category.key}
+                    to={`/category/${category.key}`}
                   >
                     <li key={idx} className="hover:font-bold py-1 text-lg">
                       {category.name}

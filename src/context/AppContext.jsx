@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { fetchCategories } from '../api/index'
+import { fetchCategories, reloadProducts } from '../api/index'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 export const AppContext = createContext()
@@ -67,9 +67,9 @@ export const AppProvider = ({ children }) => {
     setCart({ ...cart, prodsSelected: [] })
   }
 
-  const getCategoryName = (categoryID) => {
+  const getCategoryName = (categoryKey) => {
     if (!categories.length) return ''
-    const name = categories.find((category) => category.id === categoryID)
+    const name = categories.find((category) => category.key === categoryKey)
     if (name) {
       return name.name
     } else return ''

@@ -13,8 +13,8 @@ const ItemListContainer = () => {
   const { categoryID } = useParams()
   const { getCategoryName } = useAppContext()
 
-  const getItems = (categoryID) => {
-    fetchProducts(categoryID)
+  const getItems = (categoryKey) => {
+    fetchProducts(categoryKey)
       .then((data) => {
         setItems(data)
       })

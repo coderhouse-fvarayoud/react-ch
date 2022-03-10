@@ -14,7 +14,7 @@ const NavBar = () => {
         visible={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
       />
-      <div className="sticky flex items-center justify-between w-full h-16 px-10 text-white bg-black">
+      <div className="fixed z-40 top-0 left-0 flex items-center justify-between w-full h-16 px-10 text-white bg-black">
         <div
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="flex cursor-pointer"
