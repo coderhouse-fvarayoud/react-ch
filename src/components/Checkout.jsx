@@ -10,77 +10,18 @@ import Input from './Input'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faCartArrowDown, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { initialCheckoutFormData } from '../utils'
 
-const PHONE_REGEX = /^\(\d{2,5}\)\s\d{2,4}-\d{4}$|^\d{6,13}$/
-
-const initialFormData = {
-  name: {
-    value: '',
-    error: '',
-    opened: false,
-    required: true,
-    regex: null,
-    errorMessages: {
-      isEmptyMessage: 'Debés ingresar un nombre',
-      isInvalidMessage: 'El nombre ingresado no es válido',
-    },
-  },
-  surname: {
-    value: '',
-    error: '',
-    opened: false,
-    required: true,
-    regex: null,
-    errorMessages: {
-      isEmptyMessage: 'Debés ingresar un apellido',
-      isInvalidMessage: 'El apellido ingresado no es válido',
-    },
-  },
-  phone: {
-    value: '',
-    error: '',
-    opened: false,
-    required: false,
-    regex: PHONE_REGEX,
-    errorMessages: {
-      isEmptyMessage: 'Debés ingresar una teléfono',
-      isInvalidMessage: 'El teléfono ingresado no es válido',
-    },
-  },
-  email: {
-    value: '',
-    error: '',
-    opened: false,
-    required: false,
-    regex: null,
-    errorMessages: {
-      isEmptyMessage: 'Debés ingresar un email',
-      isInvalidMessage: '',
-    },
-  },
-  confirmedEmail: {
-    value: '',
-    error: '',
-    opened: false,
-    required: false,
-    regex: null,
-    errorMessages: {
-      isEmptyMessage: 'Debés confirmar tu email',
-      isInvalidMessage: 'Los correos no coinciden',
-    },
-  },
-}
-
-const Cart = () => {
+const Checkout = () => {
   const { cart, clearCart } = useAppContext()
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [loading, setLoading] = useState(false)
   const [modalText, setModalText] = useState('')
   const navigate = useNavigate()
-  const [formData, setFormData] = useState(initialFormData)
+  const [formData, setFormData] = useState(initialCheckoutFormData)
 
   useEffect(() => {
-    setFormData(initialFormData)
+    setFormData(initialCheckoutFormData)
   }, [])
 
   const generarOrden = () => {
@@ -318,4 +259,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Checkout

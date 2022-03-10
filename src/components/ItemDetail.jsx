@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import ItemCount from './ItemCount'
+import ItemQuantitySelector from './ItemQuantitySelector'
 import { useAppContext } from '../context/AppContext'
 import Button from './Button'
 
@@ -27,7 +27,7 @@ const ItemDetail = ({ item }) => {
 
   return (
     <div>
-      <ItemCount
+      <ItemQuantitySelector
         stock={stock}
         isAddModalVisible={isAddModalVisible}
         onAdd={onItemAdd}

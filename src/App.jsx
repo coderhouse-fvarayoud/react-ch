@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Cart from './components/Cart'
+import Checkout from './components/Checkout'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
 import Layout from './components/Layout'
@@ -15,7 +15,7 @@ const App = () => (
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/category/:categoryID" element={<ItemListContainer />} />
           <Route path="/item/:itemID" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Checkout />} />
         </Routes>
       </Layout>
     </BrowserRouter>

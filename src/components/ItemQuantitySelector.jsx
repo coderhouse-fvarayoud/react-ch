@@ -3,7 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Modal from './Modal'
 
-const ItemCount = ({ stock, initial, onAdd, onClose, isAddModalVisible }) => {
+const ItemQuantitySelector = ({
+  stock,
+  initial,
+  onAdd,
+  onClose,
+  isAddModalVisible,
+}) => {
   const [currentAmount, setCurrentAmount] = useState(0)
   const [buttonText, setButtonText] = useState('Agregar')
 
@@ -59,4 +65,4 @@ const ItemCount = ({ stock, initial, onAdd, onClose, isAddModalVisible }) => {
   )
 }
 
-export default ItemCount
+export default ItemQuantitySelector
