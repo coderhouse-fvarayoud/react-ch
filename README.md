@@ -36,16 +36,16 @@ npm start
 
 ## Dependencias
 
-### tailwindcss
+### [tailwindcss](https://www.npmjs.com/package/tailwindcss)
    Framework de estilos utilizado para el proyecto por preferencia.
 
-### fontawesome
+### [fontawesome](https://fontawesome.com/)
    Librería de íconos.
 
-### firebase
+### [firebase](https://www.npmjs.com/package/firebase)
    Librería para dar acceso a los servicios de Database de firebase.
   
-### framer-motion
+### [framer-motion](https://www.npmjs.com/package/framer-motion)
    Librería para generar animaciones y transiciones de estilos con facilidad.
 
 
