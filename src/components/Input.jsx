@@ -4,7 +4,7 @@ const Input = ({ label, hint, error, icon, ...props }) => {
   return (
     <div className="flex flex-col mb-1">
       <div className="flex">
-        <label className="flex items-center label-1">
+        <label className="flex items-center label-1 py-1">
           <div className="flex items-center justify-center w-6">
             <FontAwesomeIcon className="" icon={icon} size="sm" />
           </div>

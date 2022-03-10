@@ -8,7 +8,12 @@ import { addOrder, reduceStock } from '../api'
 import Modal from './Modal'
 import Input from './Input'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faCartArrowDown, faPhone } from '@fortawesome/free-solid-svg-icons'
+import {
+  faAt,
+  faCartArrowDown,
+  faPhone,
+  faSignature,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { initialCheckoutFormData } from '../utils'
 
@@ -184,7 +189,7 @@ const Checkout = () => {
                   name="surname"
                   label="Apellido"
                   type="text"
-                  icon={faUser}
+                  icon={faSignature}
                   error={formData.surname.error}
                   maxLength={80}
                   onBlur={(e) =>
@@ -220,7 +225,7 @@ const Checkout = () => {
                   name="email"
                   label="Correo electrónico"
                   type="text"
-                  icon={faUser}
+                  icon={faAt}
                   error={formData.email.error}
                   maxLength={80}
                   onBlur={(e) =>
@@ -235,7 +240,7 @@ const Checkout = () => {
                   name="confirmedEmail"
                   label="Confirmar correo electrónico"
                   type="text"
-                  icon={faUser}
+                  icon={faAt}
                   error={formData.confirmedEmail.error}
                   maxLength={80}
                   onBlur={(e) =>
