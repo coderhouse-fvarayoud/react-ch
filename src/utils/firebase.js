@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyADDdLC7JBrBPafoaC2YgSjQCvI0BlZu3c',
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: 'react-coderhouse-db.firebaseapp.com',
   projectId: 'react-coderhouse-db',
   storageBucket: 'react-coderhouse-db.appspot.com',
