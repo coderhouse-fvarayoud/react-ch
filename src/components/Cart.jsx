@@ -112,7 +112,7 @@ const Cart = () => {
       .then((data) => {
         items.forEach((item) => reduceStock(item.id, item.qty))
         setLoading(false)
-        setModalText(`Orden creada correctamente. ID: ${data.id}`)
+        setModalText(`Su orden ha sido creada correctamente con ID: ${data.id}`)
         setIsModalVisible(true)
       })
       .catch((e) => {

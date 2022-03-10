@@ -7,7 +7,7 @@ const CartItem = ({ item }) => {
   const { removeItem } = useAppContext()
 
   return (
-    <div className="flex p-4 m-2 bg-white border-2 border-cardBackground rounded-xl">
+    <div className="flex p-4 md:m-2 bg-white border-2 border-cardBackground rounded-xl">
       <img
         src={img}
         alt={`Imagen del producto ${name}`}

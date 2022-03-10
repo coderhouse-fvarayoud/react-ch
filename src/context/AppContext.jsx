@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { fetchCategories } from '../api/index'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export const AppContext = createContext()
 
@@ -12,7 +13,7 @@ const INITIAL_STATE = {
 }
 
 export const AppProvider = ({ children }) => {
-  const [cart, setCart] = useState(INITIAL_STATE)
+  const [cart, setCart] = useLocalStorage('cart', INITIAL_STATE)
   const [categories, setCategories] = useState([])
 
   // useEffect(() => {

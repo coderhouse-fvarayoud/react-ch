@@ -17,7 +17,6 @@ export const fetchProducts = async (categoryID) => {
   if (categoryID) {
     customQuery = query(customQuery, where('category', '==', categoryID))
   }
-  console.log('Fetching products...', categoryID)
   const res = await getDocs(customQuery)
   const data = res.docs.map((item) => {
     return {
@@ -30,7 +29,6 @@ export const fetchProducts = async (categoryID) => {
 
 export const fetchProductById = async (id) => {
   const dbItemRef = doc(db, 'products', id)
-  console.log('Fetching product...', id)
   const res = await getDoc(dbItemRef)
   const data = res.data()
   if (data) {
@@ -51,7 +49,6 @@ export const reloadProducts = async () => {
 
 export const fetchCategories = async () => {
   const dbCategoriesRef = collection(db, 'categories')
-  console.log('Fetching categories...')
   const res = await getDocs(dbCategoriesRef)
   const data = res.docs.map((item) => {
     return {
@@ -64,7 +61,6 @@ export const fetchCategories = async () => {
 
 export const fetchOrders = async () => {
   const dbOrdersRef = collection(db, 'orders')
-  console.log('Fetching orders...')
   const res = await getDocs(dbOrdersRef)
   const data = res.docs.map((item) => {
     return {
